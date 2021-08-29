@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 00:39:01 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/28 00:39:02 by anhigo-s         ###   ########.fr       */
+/*   Created: 2021/08/28 00:35:44 by anhigo-s          #+#    #+#             */
+/*   Updated: 2021/08/28 00:38:39 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,24 @@ static char	*get_line(char **buffer_backup, size_t i)
 
 char	*get_next(int fd, ssize_t bytes_read, char *temp_buff)
 {
-	static char	*s_buffer;
+	static char	*s_buffer[256];
 	char		*temp;
 
 	while (bytes_read > 0)
 	{
 		temp_buff[bytes_read] = '\0';
-		if (s_buffer == 0)
-			s_buffer = ft_strdup("");
-		temp = ft_strdup(s_buffer);
-		free(s_buffer);
-		s_buffer = ft_strjoinfree(temp, temp_buff);
-		if (ft_strchr(s_buffer, '\n'))
+		if (s_buffer[fd] == 0)
+			s_buffer[fd] = ft_strdup("");
+		temp = ft_strdup(s_buffer[fd]);
+		free(s_buffer[fd]);
+		s_buffer[fd] = ft_strjoinfree(temp, temp_buff);
+		if (ft_strchr(s_buffer[fd], '\n'))
 			break ;
 		bytes_read = read(fd, temp_buff, BUFFER_SIZE);
 	}
-	if (bytes_read == 0 && s_buffer == 0)
+	if (bytes_read == 0 && s_buffer[fd] == 0)
 		return (NULL);
-	return (get_line(&s_buffer, 0));
+	return (get_line(&s_buffer[fd], 0));
 }
 
 char	*get_next_line(int fd)
