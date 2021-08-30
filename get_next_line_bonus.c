@@ -6,11 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 00:35:44 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/28 00:38:39 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 14:01:09 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*get_line(char **buffer_backup, size_t i)
 {
@@ -66,7 +66,7 @@ char	*get_next_line(int fd)
 	char		temp_buff[BUFFER_SIZE + 1];
 	ssize_t		bytes_read;
 
-	if ((fd < 0) || (BUFFER_SIZE < 1) || read(fd, temp_buff, 0) < 0)
+	if ((fd < 0) || (BUFFER_SIZE < 1) || (read(fd, temp_buff, 0) < 0))
 		return (NULL);
 	bytes_read = read(fd, temp_buff, BUFFER_SIZE);
 	if (bytes_read < 0)

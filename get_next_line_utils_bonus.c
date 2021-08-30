@@ -6,11 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 22:34:13 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/28 00:38:00 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 14:01:19 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(char *str, char c)
 {

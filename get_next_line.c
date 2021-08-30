@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 00:39:01 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/28 00:39:02 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:50:43 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*get_next_line(int fd)
 	char		temp_buff[BUFFER_SIZE + 1];
 	ssize_t		bytes_read;
 
-	if ((fd < 0) || (BUFFER_SIZE < 1) || read(fd, temp_buff, 0) < 0)
+	if ((fd < 0) || (BUFFER_SIZE < 1) || (read(fd, temp_buff, 0) < 0))
 		return (NULL);
 	bytes_read = read(fd, temp_buff, BUFFER_SIZE);
 	if (bytes_read < 0)
