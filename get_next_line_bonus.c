@@ -39,7 +39,7 @@ static char	*get_line(char **buffer_backup, size_t i)
 	return (line);
 }
 
-char	*get_next(int fd, ssize_t bytes_read, char *temp_buff)
+static char	*get_next(int fd, ssize_t bytes_read, char *temp_buff)
 {
 	static char	*s_buffer[256];
 	char		*temp;
