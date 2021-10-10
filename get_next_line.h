@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: anhigo-s <anhigo-s@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 22:25:24 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/30 14:51:54 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/10/10 00:15:53 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 char	*get_next_line(int fd);
 
-char	*ft_strchr(char *str, char c);
-size_t	ft_strlen(const char *s);
-char	*ft_strjoinfree(char *s1, char *s2);
-char	*ft_strdup(char *s);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*gnl_strchr(char *str, char c);
+size_t	gnl_strlen(const char *s);
+char	*gnl_strjoinfree(char *s1, char *s2);
+char	*gnl_strdup(char *s);
+char	*gnl_substr(char const *s, unsigned int start, size_t len);
 #endif

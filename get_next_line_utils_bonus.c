@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: anhigo-s <anhigo-s@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 22:34:13 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/30 14:01:19 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/10/10 00:15:33 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr(char *str, char c)
+char	*gnl_strchr(char *str, char c)
 {
 	size_t	i;
 
@@ -23,13 +23,13 @@ char	*ft_strchr(char *str, char c)
 	return (NULL);
 }
 
-char	*ft_strjoinfree(char *s1, char *s2)
+char	*gnl_strjoinfree(char *s1, char *s2)
 {
 	char	*nstring;
 	size_t	i;
 	size_t	a;
 
-	nstring = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	nstring = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
 	i = 0;
 	a = 0;
 	if (nstring == 0)
@@ -50,7 +50,7 @@ char	*ft_strjoinfree(char *s1, char *s2)
 	return (nstring);
 }
 
-char	*ft_strdup(char *s)
+char	*gnl_strdup(char *s)
 {
 	char	*new;
 	char	*res;
@@ -67,7 +67,7 @@ char	*ft_strdup(char *s)
 	return (res);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	gnl_strlen(const char *s)
 {
 	size_t	i;
 
@@ -79,7 +79,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*gnl_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new;
 	char	*res;

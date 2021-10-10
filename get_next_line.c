@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: anhigo-s <anhigo-s@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 00:39:01 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/30 13:50:43 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/10/10 00:15:48 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_strjoinfree(char *s1, char *s2)
+static char	*gnl_strjoinfree(char *s1, char *s2)
 {
 	char	*nstring;
 	size_t	i;
 	size_t	a;
 
-	nstring = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	nstring = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
 	i = 0;
 	a = 0;
 	if (nstring == 0)
@@ -48,18 +48,18 @@ static char	*get_line(char **buffer_backup, size_t i)
 		i++;
 	if ((*buffer_backup)[i] == 0)
 	{
-		line = ft_strdup(*buffer_backup);
+		line = gnl_strdup(*buffer_backup);
 		free(*buffer_backup);
 		*buffer_backup = NULL;
 	}
 	else
 	{
-		line = ft_substr(*buffer_backup, 0, i + 1);
-		temp = ft_strdup(&(*buffer_backup)[i + 1]);
+		line = gnl_substr(*buffer_backup, 0, i + 1);
+		temp = gnl_strdup(&(*buffer_backup)[i + 1]);
 		free(*buffer_backup);
 		*buffer_backup = NULL;
 		if (*temp)
-			*buffer_backup = ft_strdup(temp);
+			*buffer_backup = gnl_strdup(temp);
 		free(temp);
 		temp = NULL;
 	}
@@ -75,11 +75,11 @@ static char	*get_next(int fd, ssize_t bytes_read, char *temp_buff)
 	{
 		temp_buff[bytes_read] = '\0';
 		if (s_buffer == 0)
-			s_buffer = ft_strdup("");
-		temp = ft_strdup(s_buffer);
+			s_buffer = gnl_strdup("");
+		temp = gnl_strdup(s_buffer);
 		free(s_buffer);
-		s_buffer = ft_strjoinfree(temp, temp_buff);
-		if (ft_strchr(s_buffer, '\n'))
+		s_buffer = gnl_strjoinfree(temp, temp_buff);
+		if (gnl_strchr(s_buffer, '\n'))
 			break ;
 		bytes_read = read(fd, temp_buff, BUFFER_SIZE);
 	}

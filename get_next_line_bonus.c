@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: anhigo-s <anhigo-s@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 00:35:44 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/08/30 14:01:09 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/10/10 00:15:14 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ static char	*get_line(char **buffer_backup, size_t i)
 		i++;
 	if ((*buffer_backup)[i] == 0)
 	{
-		line = ft_strdup(*buffer_backup);
+		line = gnl_strdup(*buffer_backup);
 		free(*buffer_backup);
 		*buffer_backup = NULL;
 	}
 	else
 	{
-		line = ft_substr(*buffer_backup, 0, i + 1);
-		temp = ft_strdup(&(*buffer_backup)[i + 1]);
+		line = gnl_substr(*buffer_backup, 0, i + 1);
+		temp = gnl_strdup(&(*buffer_backup)[i + 1]);
 		free(*buffer_backup);
 		*buffer_backup = NULL;
 		if (*temp)
-			*buffer_backup = ft_strdup(temp);
+			*buffer_backup = gnl_strdup(temp);
 		free(temp);
 		temp = NULL;
 	}
@@ -48,11 +48,11 @@ static char	*get_next(int fd, ssize_t bytes_read, char *temp_buff)
 	{
 		temp_buff[bytes_read] = '\0';
 		if (s_buffer[fd] == 0)
-			s_buffer[fd] = ft_strdup("");
-		temp = ft_strdup(s_buffer[fd]);
+			s_buffer[fd] = gnl_strdup("");
+		temp = gnl_strdup(s_buffer[fd]);
 		free(s_buffer[fd]);
-		s_buffer[fd] = ft_strjoinfree(temp, temp_buff);
-		if (ft_strchr(s_buffer[fd], '\n'))
+		s_buffer[fd] = gnl_strjoinfree(temp, temp_buff);
+		if (gnl_strchr(s_buffer[fd], '\n'))
 			break ;
 		bytes_read = read(fd, temp_buff, BUFFER_SIZE);
 	}
